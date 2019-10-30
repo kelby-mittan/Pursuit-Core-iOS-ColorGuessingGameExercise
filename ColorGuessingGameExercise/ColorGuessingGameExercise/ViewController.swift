@@ -35,9 +35,8 @@ class ViewController: UIViewController {
     var correctGuess = true
     
     @IBOutlet weak var yourScore: UILabel!
-    
     @IBAction func redGreenOrBlue(_ sender: UIButton) {
-//        var score: Int = 0
+        
         let colorArr = [randomRed, randomGreen, randomBlue]
         let maxColor = colorArr.max()
        
@@ -46,46 +45,42 @@ class ViewController: UIViewController {
             case 0:
                 if maxColor == randomRed {
                     rightOrWrong.text = "Correct, red is most dominant"
-//                    score = score + 10
                     randomRed = CGFloat.random(in: 0...1)
                     randomGreen = CGFloat.random(in: 0...1)
                     randomBlue = CGFloat.random(in: 0...1)
                     let myColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: CGFloat.random(in: 0...1))
                     self.randomColor.backgroundColor = myColor
                 } else {
-                    rightOrWrong.text = "WRONG!!!"
+                    rightOrWrong.text = "Incorrect"
                     correctGuess = false
                 }
             case 1:
                 if maxColor == randomGreen {
                     rightOrWrong.text = "Correct, green is most dominant"
-//                    score = score + 10
                     randomRed = CGFloat.random(in: 0...1)
                     randomGreen = CGFloat.random(in: 0...1)
                     randomBlue = CGFloat.random(in: 0...1)
                     let myColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: CGFloat.random(in: 0...1))
                     self.randomColor.backgroundColor = myColor
                 } else {
-                    rightOrWrong.text = "WRONG!!!"
+                    rightOrWrong.text = "Incorrect"
                     correctGuess = false
                 }
             case 2:
                 if maxColor == randomBlue {
                     rightOrWrong.text = "Correct, blue is most dominant"
-//                    score = score + 10
                     randomRed = CGFloat.random(in: 0...1)
                     randomGreen = CGFloat.random(in: 0...1)
                     randomBlue = CGFloat.random(in: 0...1)
                     let myColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: CGFloat.random(in: 0...1))
                     self.randomColor.backgroundColor = myColor
                 } else {
-                    rightOrWrong.text = "WRONG!!!"
+                    rightOrWrong.text = "Incorrect"
                     correctGuess = false
                 }
             default:
                 rightOrWrong.text = "error"
             }
-//            yourScore.text = "Score: \(score)"
             
         }
         
