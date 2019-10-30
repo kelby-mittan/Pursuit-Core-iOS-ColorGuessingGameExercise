@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     var randomGreen = CGFloat.random(in: 0...1)
     var randomBlue = CGFloat.random(in: 0...1)
     var correctGuess = true
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var highScoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +29,13 @@ class ViewController: UIViewController {
         self.randomColor.backgroundColor = myColor
     }
     
-    
+    var score = Int()
+    var highScore = Int()
 
     @IBAction func redGreenOrBlue(_ sender: UIButton) {
         
         let colorArr = [randomRed, randomGreen, randomBlue]
         let maxColor = colorArr.max()
-       
         if correctGuess == true {
             switch sender.tag {
             case 0:
@@ -44,6 +46,7 @@ class ViewController: UIViewController {
                     randomBlue = CGFloat.random(in: 0...1)
                     let myColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: CGFloat.random(in: 0...1))
                     self.randomColor.backgroundColor = myColor
+                    score = score + 10
                 } else {
                     rightOrWrong.text = "Incorrect"
                     correctGuess = false
@@ -56,6 +59,7 @@ class ViewController: UIViewController {
                     randomBlue = CGFloat.random(in: 0...1)
                     let myColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: CGFloat.random(in: 0...1))
                     self.randomColor.backgroundColor = myColor
+                    score = score + 10
                 } else {
                     rightOrWrong.text = "Incorrect"
                     correctGuess = false
@@ -68,6 +72,7 @@ class ViewController: UIViewController {
                     randomBlue = CGFloat.random(in: 0...1)
                     let myColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: CGFloat.random(in: 0...1))
                     self.randomColor.backgroundColor = myColor
+                    score = score + 10
                 } else {
                     rightOrWrong.text = "Incorrect"
                     correctGuess = false
@@ -77,7 +82,16 @@ class ViewController: UIViewController {
             }
             
         }
+        scoreLabel.text = "Score: \(score)"
         
+        if !correctGuess {
+            scoreLabel.text = "Thanks for playing, your score is \(score)"
+        }
+        
+        if score >= highScore {
+            highScore = score
+        }
+        highScoreLabel.text = "High Score: \(highScore)"
         
     }
     
@@ -88,6 +102,9 @@ class ViewController: UIViewController {
         let myColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: CGFloat.random(in: 0...1))
         randomColor.backgroundColor = myColor
         correctGuess = true
+        scoreLabel.text = ""
+        score = 0
+        
     }
 }
 
