@@ -11,30 +11,24 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var randomColor: UIView!
-//    let randomRed = CGFloat.random(in: 0...1)
-//
-//    let myColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: CGFloat.random(in: 0...1))
-    
     @IBOutlet weak var rightOrWrong: UILabel!
-
-    
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        let randomRed = CGFloat.random(in: 0...1)
-        let randomGreen = CGFloat.random(in: 0...1)
-        let randomBlue = CGFloat.random(in: 0...1)
-        let myColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: CGFloat.random(in: 0...1))
-        self.randomColor.backgroundColor = myColor
-    }
     var randomRed = CGFloat.random(in: 0...1)
     var randomGreen = CGFloat.random(in: 0...1)
     var randomBlue = CGFloat.random(in: 0...1)
     var correctGuess = true
     
-    @IBOutlet weak var yourScore: UILabel!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        randomRed = CGFloat.random(in: 0...1)
+        randomGreen = CGFloat.random(in: 0...1)
+        randomBlue = CGFloat.random(in: 0...1)
+        let myColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: CGFloat.random(in: 0...1))
+        self.randomColor.backgroundColor = myColor
+    }
+    
+    
+
     @IBAction func redGreenOrBlue(_ sender: UIButton) {
         
         let colorArr = [randomRed, randomGreen, randomBlue]
@@ -88,9 +82,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func anotherColor(_ sender: UIButton) {
-        let randomRed = CGFloat.random(in: 0...1)
-        let randomGreen = CGFloat.random(in: 0...1)
-        let randomBlue = CGFloat.random(in: 0...1)
+        randomRed = CGFloat.random(in: 0...1)
+        randomGreen = CGFloat.random(in: 0...1)
+        randomBlue = CGFloat.random(in: 0...1)
         let myColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: CGFloat.random(in: 0...1))
         randomColor.backgroundColor = myColor
         correctGuess = true
